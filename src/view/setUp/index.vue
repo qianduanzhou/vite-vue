@@ -1,28 +1,25 @@
-<script setup lang="ts">
-    import { ref, toRefs } from 'vue'
-    import useUserRepositories from './composables/useUserRepositories'
-    import useRepositoryNameSearch from './composables/useRepositoryNameSearch'
-    const props = defineProps({
-        user: {
-            type: String,
-            required: true,
-            default: 'zhou'
-        }
-    })
-
-    let { user } = toRefs(props)
-
-    const {
-        repositories
-    } = useUserRepositories(user)
-    const { repositoriesMatchingSearchQuery } = useRepositoryNameSearch(repositories)
-    console.log(repositoriesMatchingSearchQuery.value)
-</script>
-
 <template>
-    <div>{{repositoriesMatchingSearchQuery}}</div>
+    <div class="index">
+        <child ref="child" title="setUp"></child>
+    </div>
 </template>
 
-<style>
+<script>
+import child from './component/child.vue'
+import { provide, ref, readonly } from 'vue'
+export default {
+    components: {
+        child
+    },
+    setup() {
+        provide('a', readonly(ref(1)))//setup中使用provide,响应式用ref或者reactive，使用readonly可以防止在inject中被修改
+    },
+    mounted() {
+        console.log(this.$refs.child.title)
+    },
+};
+</script>
 
+<style lang='scss' scoped>
+    
 </style>
