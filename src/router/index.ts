@@ -12,6 +12,10 @@ const routes = [
         path: '/template',
         component: () => import("@/view/template/index.vue")
     },
+    {
+        path: '/reactive',
+        component: () => import("@/view/reactive/index.vue")
+    },
 ]
 
 export default createRouter({
