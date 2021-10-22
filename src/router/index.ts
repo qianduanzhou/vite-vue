@@ -17,6 +17,10 @@ const routes = [
         path: '/reactive',
         component: () => import("@/view/reactive/index.vue")
     },
+    {
+        path: '/map',
+        component: () => import("@/view/map/index.vue")
+    },
 ]
 
 export default createRouter({
