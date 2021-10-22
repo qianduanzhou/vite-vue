@@ -2,15 +2,17 @@
   "name": "vite-vue",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --mode development",
-    "build": "vue-tsc --noEmit && vite build --mode production",
-    "serve": "vite preview"
+    "dev": "vite --mode dev",
+    "build": "vue-tsc --noEmit && vite build --mode prod",
+    "preview": "npm run build && vite preview"
   },
   "dependencies": {
     "@types/qs": "^6.9.7",
     "axios": "^0.23.0",
+    "element-plus": "^1.1.0-beta.24",
     "sass": "^1.43.2",
     "sass-loader": "^12.2.0",
+    "unplugin-vue-components": "^0.16.0",
     "vue": "^3.2.16",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"

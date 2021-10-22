@@ -34,8 +34,6 @@ export default defineComponent({
     //Ref 解包仅发生在被响应式 Object 嵌套的时候。当从 Array 或原生集合类型如 Map访问 ref 时，不会进行解包：
     let arr = reactive([ref(1)]);
     let r = reactive({ a: ref(1) });
-    console.log(arr[0], arr[0].value);
-    console.log(r.a, r.a.value);
 
     //默认reactive使用解构会导致解构的值失去响应式，使用toRefs可以避免
     let { count } = state;
@@ -50,8 +48,8 @@ export default defineComponent({
 
     //readonly可以防止响应式对象修改
     let readonlyObj = readonly(reactive({ a: 1 }));
-    readonlyObj.a++;
-    console.log("readonlyObj", readonlyObj.a);
+    // readonlyObj.a++;
+    // console.log("readonlyObj", readonlyObj.a);
     return {
       state,
       num,
