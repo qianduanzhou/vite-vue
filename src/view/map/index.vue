@@ -3,9 +3,9 @@
 	</div>
 </template>
 
-<script>
-export default {
-  mounted() {
+<script setup lang="ts">
+  import { onMounted } from 'vue';
+  onMounted(() => {
     require(["esri/config", "esri/Map", "esri/views/MapView"], function(
       esriConfig,
       Map,
@@ -16,14 +16,13 @@ export default {
         basemap: "arcgis-topographic" // Basemap layer service
       });
       const view = new MapView({
-        map: map,
+        map,
         center: [-118.805, 34.027], // Longitude, latitude
         zoom: 13, // Zoom level
         container: "viewDiv" // Div element
       });
     });
-  }
-};
+  })
 </script>
 
 <style lang='scss' scoped>
