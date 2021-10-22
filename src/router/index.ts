@@ -21,6 +21,14 @@ const routes = [
         path: '/map',
         component: () => import("@/view/map/index.vue")
     },
+    {
+        path: '/request',
+        component: () => import("@/view/request/index.vue")
+    },
+    {
+        path: '/test',
+        component: () => import("@/view/test/index.vue")
+    },
 ]
 
 export default createRouter({

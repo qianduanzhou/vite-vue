@@ -3,7 +3,7 @@ import store from '@/store/index';
 
 let { VITE_NORMALURL: normalUrl, MODE } = import.meta.env
 
-let baseURL = MODE == 'dev' ? '/local' : String(normalUrl)//或者可以使用import.meta.env.PROD(boolean)
+let baseURL = MODE == 'dev' ? '/local' : String(normalUrl)//或者可以使用import.meta.env.DEV(boolean)
 const instance = axios.create({
     baseURL,//基础url
     timeout: 30000,//请求超时时间
