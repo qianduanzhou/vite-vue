@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import { h, toRefs, inject } from "vue";
-export default {
+import { h, toRefs, inject, defineComponent } from "vue";
+export default defineComponent({
   props: {
     title: {
       type: String,
@@ -37,7 +37,7 @@ export default {
     // //也可以返回一个渲染函数
     // return () => h('p', {}, props.title)
   }
-};
+});
 </script>
 
 <style lang='scss' scoped>
