@@ -3,7 +3,7 @@
 	<p>{{num}}</p>
 	<p>{{nested.num}}</p>
 	<p>{{count}}</p>
-	<p>{{refCount}}</p>
+	<!-- <p>{{refCount}}</p> -->
 </template>
 
 <script lang='tsx'>
@@ -37,13 +37,13 @@ export default defineComponent({
 
     //默认reactive使用解构会导致解构的值失去响应式，使用toRefs可以避免
     let { count } = state;
-    let { count: refCount } = toRefs(state);
+    // let { count: refCount } = toRefs(state);
 
     setInterval(() => {
       state.count++;
       num.value++;
       count++;
-      refCount.value++;
+      // refCount.value++;
     }, 1000);
 
     //readonly可以防止响应式对象修改
@@ -56,7 +56,7 @@ export default defineComponent({
       // nested: {num},//需要通过nested.num.value访问
       nested: reactive({ num }), //可以通过reactive直接访问
       count,
-      refCount
+      // refCount
     };
   }
 });

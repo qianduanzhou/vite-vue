@@ -33,6 +33,10 @@ const routes = [
         path: '/component',
         component: () => import("@/view/component/index.vue")
     },
+    {
+        path: '/life',
+        component: () => import("@/view/life/index.vue")
+    },
 ]
 
 export default createRouter({
