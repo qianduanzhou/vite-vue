@@ -1,11 +1,14 @@
 <template>
 	<div class="setUp">
 		{{title}}-{{a}}
+    <br/>
+    <el-button type="primary" @click="add">add</el-button>
+    {{count}}
 	</div>
 </template>
 
 <script>
-import { h, toRefs, inject, defineComponent } from "vue";
+import { h, ref, toRefs, inject, defineComponent } from "vue";
 export default defineComponent({
   props: {
     title: {
@@ -25,18 +28,23 @@ export default defineComponent({
     const { attrs, slots, emit, expose } = context;
 
     const a = inject("a"); //setup中使用inject
+    let count = ref(1);
+    function add() {
+      count.value ++
+    }
     return {
       //return出去的将可以在html里面使用
       title,
-      a
+      a,
+      count,
+      add
     };
-
     // expose({//使用返回渲染函数的方式会导致无法返回其他东西，这时使用expose可以返回其他东西(通过父组件$refs去范围)
     //     title
     // })
     // //也可以返回一个渲染函数
     // return () => h('p', {}, props.title)
-  }
+  },
 });
 </script>
 
