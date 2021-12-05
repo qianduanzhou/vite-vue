@@ -7,7 +7,7 @@
 	</div>
 </template>
 
-<script>
+<script lang="ts">
 import { h, ref, toRefs, inject, defineComponent } from "vue";
 export default defineComponent({
   props: {

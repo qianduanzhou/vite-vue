@@ -10,6 +10,7 @@
     "@types/qs": "^6.9.7",
     "axios": "^0.23.0",
     "element-plus": "^1.1.0-beta.24",
+    "esri-loader": "^3.3.0",
     "sass": "^1.43.2",
     "sass-loader": "^12.2.0",
     "unplugin-vue-components": "^0.16.0",
@@ -21,6 +22,7 @@
     "@types/node": "^16.11.1",
     "@vitejs/plugin-vue": "^1.9.3",
     "@vitejs/plugin-vue-jsx": "^1.2.0",
+    "postcss-pxtorem": "^6.0.0",
     "typescript": "^4.4.3",
     "vite": "^2.6.4",
     "vue-tsc": "^0.3.0"

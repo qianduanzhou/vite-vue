@@ -37,6 +37,10 @@ const routes = [
         path: '/life',
         component: () => import("@/view/life/index.vue")
     },
+    {
+        path: '/rem',
+        component: () => import("@/view/rem/index.vue")
+    },
 ]
 
 export default createRouter({

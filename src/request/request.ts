@@ -5,7 +5,7 @@ interface DataIn {
     [propName: string]: any
 }
 
-function request({ name, data: dataIn } : {name: string, data: DataIn}) {
+function request({ name, data: dataIn = {} } : {name: string, data?: DataIn}) {
     if(!apiList[name]) {
         throw new SyntaxError(`请在api文件注册路由:  ${name}`);
     }

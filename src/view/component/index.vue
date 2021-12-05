@@ -14,7 +14,7 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineAsyncComponent } from "vue";
 import LoadingComponent from "./component/LoadingComponent.vue";
 import ErrorComponent from "./component/fail.vue";
@@ -26,7 +26,7 @@ import ErrorComponent from "./component/fail.vue";
 
 const AsyncComp = defineAsyncComponent({
     loader: () =>
-        new Promise((resolve, reject) => {
+        new Promise((resolve: any, reject) => {
         setTimeout(() => {
             resolve(import("./component/index.vue"));
         }, 2000);

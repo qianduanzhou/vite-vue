@@ -10,7 +10,7 @@ import { request } from "@/request/request";
 const result = ref([]);
 onMounted(() => {
   request({ name: "test" }).then(
-    res => {
+    (res: any) => {
       console.log("res", res);
       result.value = res[0];
     },

@@ -4,13 +4,10 @@
 </template>
 
 <script setup lang="ts">
+  import { loadModules } from "esri-loader";
   import { onMounted } from 'vue';
   onMounted(() => {
-    require(["esri/config", "esri/Map", "esri/views/MapView"], function(
-      esriConfig,
-      Map,
-      MapView
-    ) {
+     loadModules(["esri/config", "esri/Map", "esri/views/MapView"]).then(([esriConfig, Map, MapView]) => {
       esriConfig.apiKey = "YOUR_API_KEY";
       const map = new Map({
         basemap: "arcgis-topographic" // Basemap layer service
