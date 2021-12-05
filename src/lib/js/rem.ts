@@ -1,6 +1,5 @@
 const DEVICEWIDTH = 375;// 设计稿设备宽度
 const ROOTVALUE = 100 // 对应postcss.config里面的rootValue
-const RATIO = DEVICEWIDTH / ROOTVALUE;// 设计稿设备宽度下对应比例
 // 设置 rem 函数
 function setRem () {
   // 当前设备宽度
@@ -8,7 +7,7 @@ function setRem () {
   // 得到html的Dom元素
   let htmlDom = document.getElementsByTagName('html')[0];
   // 设置根元素字体大小
-  htmlDom.style.fontSize = htmlWidth / RATIO + 'px';
+  htmlDom.style.fontSize = htmlWidth / DEVICEWIDTH * ROOTVALUE + 'px';
   console.log(htmlDom.style.fontSize)
 }
 // 初始化
