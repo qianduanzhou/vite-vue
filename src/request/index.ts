@@ -35,8 +35,12 @@ function request({ name, data: dataIn = {} } : {name: string, data?: DataIn}) {
             params,
             data,
             headers
-        }).then(res => {
-            resolve(res)
+        }).then((res: any) => {
+            if(res.code === 200) {
+                resolve(res.data)
+            } else {
+                reject(res)
+            }
         }).catch(err => {
             reject(err)
         })

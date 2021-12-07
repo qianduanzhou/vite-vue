@@ -15,7 +15,7 @@ const {
 } = import.meta.env
 
 let apiList: ApiList = {
-    'test': {
+    'getFacility': {
         url: iotUrl + '/facility/getFacilityRealTimeDataByToken',
         method: 'get',
         // headers: {
@@ -23,6 +23,10 @@ let apiList: ApiList = {
         //     // 'Content-Type': 'application/x-www-form-urlencoded',
         //     // 'Content-Type': 'multipart/form-data',
         // }
+    },
+    'getList': {
+        url: 'http://localhost:8080/list/get',
+        method: 'get',
     }
 }
 
