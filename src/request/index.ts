@@ -66,5 +66,5 @@ function formDataFormat(data: any) {
 }
 
 export {
-    request
+    request, DataIn
 }
