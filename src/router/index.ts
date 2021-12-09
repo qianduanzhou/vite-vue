@@ -45,6 +45,10 @@ const routes = [
         path: '/list',
         component: () => import("@/view/list/index.vue")
     },
+    {
+        path: '/lazyLoad',
+        component: () => import("@/view/lazyLoad/index.vue")
+    },
 ]
 
 export default createRouter({

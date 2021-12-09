@@ -1,4 +1,6 @@
 import CacheBucket from './cacheBucket'
+import ImgLazyLoad from './imgLazyLoad'
+
 interface ParamsObj {
     [propName: string]: any
 }
@@ -38,7 +40,7 @@ function parseParam(url: string) {
  * @param {*} immediate 是否立即执行（马上执行一次，等待的时间重新执行后的下一次执行的时间）
  * @returns 
  */
- function debounce(func: Function, wait: number, immediate: boolean) {
+function debounce(func: Function, wait: number, immediate: boolean) {
     let timeout: any, result: any;
     
     let debounced = function (this: any) {
@@ -120,7 +122,7 @@ function throttle(func: Function, wait: number, options: ThrottleOption) {
  * @param map 
  * @returns 
  */
- function deepClone(target: any, map = new WeakMap()) {
+function deepClone(target: any, map = new WeakMap()) {
     if (map.get(target)) {
         return target;
     }
@@ -144,7 +146,9 @@ function throttle(func: Function, wait: number, options: ThrottleOption) {
         return target;
     }
 }
+
 const isObject = (target: any) => {
     return typeof target === 'object' && target !== null
 }
-export { parseParam, debounce, throttle, deepClone, CacheBucket }
+
+export { parseParam, debounce, throttle, deepClone, CacheBucket, ImgLazyLoad }

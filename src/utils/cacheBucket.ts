@@ -16,14 +16,13 @@ let copyRes: any = null;//缓存的返回结果
 
 //缓存桶类
 class CacheBucket {
-    public requestOption: RequestOption;//请求和返回相关参数
-    public defalutCount: number;//默认一次返回数量
-
     constructor(requestOption: RequestOption, defalutCount: number) {
         this.defalutCount = defalutCount || requestOption ? requestOption.data.limit / 2 : 20
         this.requestOption = requestOption || {}
     }
 
+    public requestOption: RequestOption;//请求和返回相关参数
+    public defalutCount: number;//默认一次返回数量
     //初始化
     static init() {
         cacheList = []
@@ -105,6 +104,12 @@ class CacheBucket {
         cacheList = cacheList.concat(data)
         record = cacheList.splice(0, this.defalutCount)
         return record
+    }
+    /**
+     * 获取缓存数据
+     */
+    public getCacheList() {
+        return cacheList
     }
 }
 

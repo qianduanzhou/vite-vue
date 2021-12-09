@@ -1,6 +1,6 @@
 <template>
 	<div id="viewDiv" v-infinite-scroll="load" :infinite-scroll-immediate="false" v-loading="firstLoading">
-    <div class="item" v-for="item in list" :key="item.id">
+    <div class="item" v-for="item in list" :key="item.id" @click="jump">
       {{item.title}}
     </div>
     <div class="loading" v-loading="loading" v-if="list.length < pager.count"></div>
@@ -13,6 +13,8 @@
   import { onMounted, ref, reactive, toRefs } from "vue";
   import { request } from "@/request";
   import { CacheBucket } from "@/utils"
+  import { useRouter } from 'vue-router'
+  let router = useRouter()
   let list = ref([]);
   let firstLoading = ref(false)
   let loading = ref(false)
@@ -63,6 +65,7 @@
         if(isRequest) {
           pager.page ++
         }
+        console.log('getCacheList', cacheBucket.getCacheList())
       }).catch((err: any) => {
         console.log('err', err)
     })
@@ -86,6 +89,9 @@
     CacheBucket.init()
     getList()
   });
+  function jump() {
+    router.push({path: '/request'})
+  }
 </script>
 
 <style lang='scss' scoped>
