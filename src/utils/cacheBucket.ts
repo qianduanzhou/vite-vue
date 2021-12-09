@@ -1,20 +1,25 @@
 import {toRefs} from 'vue';
 import { request, DataIn } from "@/request";
 import { deepClone } from "@/utils"
-interface requestOption {
+
+interface Data extends DataIn {
+    limit: number
+}
+interface RequestOption {
     name: string,
-    data: DataIn,
+    data: Data,
     recordKey ?: string
 }
+
 let cacheList: Array<any> = [];//缓存的数据列表
 let copyRes: any = null;//缓存的返回结果
 
 //缓存桶类
 class CacheBucket {
-    public requestOption: requestOption;//请求和返回相关参数
+    public requestOption: RequestOption;//请求和返回相关参数
     public defalutCount: number;//默认一次返回数量
 
-    constructor(requestOption: requestOption, defalutCount: number) {
+    constructor(requestOption: RequestOption, defalutCount: number) {
         this.defalutCount = defalutCount || requestOption ? requestOption.data.limit / 2 : 20
         this.requestOption = requestOption || {}
     }

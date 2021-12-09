@@ -41,6 +41,10 @@ const routes = [
         path: '/rem',
         component: () => import("@/view/rem/index.vue")
     },
+    {
+        path: '/list',
+        component: () => import("@/view/list/index.vue")
+    },
 ]
 
 export default createRouter({

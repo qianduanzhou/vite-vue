@@ -31,7 +31,7 @@ instance.interceptors.response.use(
     response => {
         const res: any = response.data
         let result: any;
-        if(res.success == true) {
+        if(res.code == 200) {
             result = res.data
         } else {
             result = res
