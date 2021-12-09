@@ -31,6 +31,8 @@
       getList()
     }
   } 
+
+  let cacheBucket = new CacheBucket()
   //获取列表
   function getList(pageIn: number) {
     let { page, limit, count } = toRefs(pager)
@@ -51,7 +53,7 @@
       data,
       recordKey: "record"
     }
-    let cacheBucket = new CacheBucket(option)
+    cacheBucket.init(option)
     cacheBucket.getList().then(
       (res: any) => {
         let { res: {record, totalCount}, isRequest } = res
@@ -86,7 +88,6 @@
     // );
   }
   onMounted(() => {
-    CacheBucket.init()
     getList()
   });
   function jump() {
