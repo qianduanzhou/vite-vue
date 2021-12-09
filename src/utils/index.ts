@@ -1,8 +1,8 @@
 import CacheBucket from './cacheBucket'
-interface paramsObj {
+interface ParamsObj {
     [propName: string]: any
 }
-interface throttleOption {
+interface ThrottleOption {
     trailing ?: boolean,
     leading ?: boolean
 }
@@ -11,7 +11,7 @@ function parseParam(url: string) {
     let reg  = /.+\?(.+)$/.exec(url)
     const paramsStr = (reg && reg.length > 1) ? reg[1] : ''; // 将 ? 后面的字符串取出来
     const paramsArr = paramsStr.split('&'); // 将字符串以 & 分割后存到数组中
-    let paramsObj: paramsObj = {};
+    let paramsObj: ParamsObj = {};
     // 将 params 存到对象中
     paramsArr.forEach(param => {
         if (/=/.test(param)) { // 处理有 value 的参数
@@ -75,7 +75,7 @@ function parseParam(url: string) {
  * @param {*} options 有两个参数 trailing结束后是否执行一次 leading是否立即执行
  * @returns 
  */
-function throttle(func: Function, wait: number, options: throttleOption) {
+function throttle(func: Function, wait: number, options: ThrottleOption) {
     let timeout: any, context: any, args: any, result;
     let previous = 0;
     if (!options) options = {};
