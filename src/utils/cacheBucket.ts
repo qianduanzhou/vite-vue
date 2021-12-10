@@ -21,9 +21,9 @@ class CacheBucket {
     public defalutCount: number = 20;//默认一次返回数量
     public requestOption: RequestOption = {name: '', data: {limit: 0}};//请求和返回相关参数
     //初始化
-    public init(requestOption: RequestOption, defalutCount: number) {
+    public init(requestOption: RequestOption, defalutCount?: number) {
         let { limit } = requestOption.data
-        if(defalutCount > limit) {
+        if(defalutCount && defalutCount > limit) {
             throw new SyntaxError(`defalutCount不能大于limit`);
         }
         this.defalutCount = defalutCount !== undefined ? defalutCount : requestOption ? limit / 2 : this.defalutCount

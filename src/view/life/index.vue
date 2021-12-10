@@ -50,15 +50,15 @@ export default {
         console.log('unmounted')
     },
 
-    errorCaptured(err, instance, info) {//错误对象、发生错误的组件实例以及一个包含错误来源信息的字符串。
+    errorCaptured(err: any, instance: any, info: any) {//错误对象、发生错误的组件实例以及一个包含错误来源信息的字符串。
         console.log('errorCaptured', err, instance, info)
         return false;//此钩子可以返回 false 以阻止该错误继续向上传播。
     },
 
-    renderTracked(event) {//跟踪虚拟 DOM 重新渲染时调用。,跟踪了组件以及该操作的目标对象和键。首次更新渲染调用
+    renderTracked(event: any) {//跟踪虚拟 DOM 重新渲染时调用。,跟踪了组件以及该操作的目标对象和键。首次更新渲染调用
         console.log('renderTracked', event)
     },
-    renderTriggered(event) {//和renderTracked类似，更新时调用
+    renderTriggered(event: any) {//和renderTracked类似，更新时调用
         console.log('renderTriggered', event)
     },
 

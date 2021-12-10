@@ -15,7 +15,8 @@ import {onMounted} from 'vue';
  */
 import classes from "./css/example.module.css";
 onMounted(() => {
-	document.getElementById('foo').className = classes.red;
+	let dom: any = document.getElementById('foo')
+	dom.className = classes.red;
 })
 /**
  * URL 导入
@@ -23,7 +24,8 @@ onMounted(() => {
  */
 import imgUrl from "@/assets/logo.png"
 onMounted(() => {
-	document.getElementById('hero-img').src = imgUrl
+	let dom: any = document.getElementById('hero-img')
+	dom.src = imgUrl
 })
 /**
  * Glob 导入

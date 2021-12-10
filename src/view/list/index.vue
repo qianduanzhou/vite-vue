@@ -15,7 +15,7 @@
   import { CacheBucket } from "@/utils"
   import { useRouter } from 'vue-router'
   let router = useRouter()
-  let list = ref([]);
+  let list: any = ref([]);
   let firstLoading = ref(false)
   let loading = ref(false)
   let pager = reactive({
@@ -34,7 +34,7 @@
 
   let cacheBucket = new CacheBucket()
   //获取列表
-  function getList(pageIn: number) {
+  function getList(pageIn?: number) {
     let { page, limit, count } = toRefs(pager)
     if(page.value === 1) {
       firstLoading.value = true
