@@ -1,6 +1,6 @@
 import CacheBucket from './cacheBucket'
 import ImgLazyLoad from './imgLazyLoad'
-
+import eventBus from './eventBus'
 interface ParamsObj {
     [propName: string]: any
 }
@@ -151,4 +151,4 @@ const isObject = (target: any) => {
     return typeof target === 'object' && target !== null
 }
 
-export { parseParam, debounce, throttle, deepClone, CacheBucket, ImgLazyLoad }
+export { parseParam, debounce, throttle, deepClone, CacheBucket, ImgLazyLoad, eventBus }
