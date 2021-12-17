@@ -97,7 +97,7 @@
 
 <style lang='scss' scoped>
   #viewDiv{
-    padding: 10px;
+    padding: 10px 10px 50px;
     height: 100%;
     overflow: auto;
     .item {

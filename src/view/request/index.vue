@@ -4,7 +4,6 @@
 
 <script lang="ts">
 import {request} from '@/request'
-import {CacheBucket} from '@/utils'
 export default {
   setup() {
     request({name: 'getFacility'}).then(res => {
@@ -12,7 +11,6 @@ export default {
     }).catch(err => {
         console.log('err', err)
     })
-    console.log('CacheBucket', new CacheBucket().getCacheList())
   },
 };
 </script>
