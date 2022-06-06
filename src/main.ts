@@ -7,12 +7,12 @@ import '@/lib/js/rem';
 
 import { registerMicroApps, start } from 'qiankun';
 registerMicroApps([
-  // {
-  //   name: 'react app', // app name registered
-  //   entry: '//localhost:7100',
-  //   container: '#yourContainer',
-  //   activeRule: '/yourActiveRule',
-  // },
+  {
+    name: 'reactApp', // app name registered
+    entry: '//localhost:4000',
+    container: '#reactApp',
+    activeRule: '/reactApp',
+  },
   {
     name: 'vueApp',
     entry: '//localhost:8080',
