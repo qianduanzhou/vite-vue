@@ -5,12 +5,13 @@
 <script lang="ts">
 import {request} from '@/request'
 export default {
-  setup() {
-    request({name: 'getFacility'}).then(res => {
-        console.log('getFacility', res)
-    }).catch(err => {
-        console.log('err', err)
-    })
+  async setup() {
+    let { err, res } = await request({name: 'getFacility'});
+    if(err) {
+      console.log('err', err);
+      return;
+    }
+    console.log('res', res);
   },
 };
 </script>

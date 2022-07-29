@@ -50,7 +50,7 @@ class CacheBucket {
      * @param isHandle 是否使用handleResult方法
      * @param isRequest 是否请求接口
      */
-    private requestList(resolve: any, reject: any, isHandle: boolean = true, isRequest: boolean = true) {
+    private async requestList(resolve: any, reject: any, isHandle: boolean = true, isRequest: boolean = true) {
         let {name, data, recordKey} = this.requestOption
 
         if(!isHandle) {
@@ -66,17 +66,16 @@ class CacheBucket {
             resolve(result)
         }
         if(isRequest) {
-            request({ name, data }).then(
-                (res: any) => {
-                    if(isHandle) {
-                        this.handleResult(resolve, res);
-                    } else {
-                        let data = recordKey ? res[recordKey] : res
-                        this.cacheList = this.cacheList.concat(data)
-                    }
-                }).catch((err: any) => {
-                    reject(err)
-            })
+            let { err, res }: any = await request({ name, data });
+            if(err) {
+                return reject(err)
+            }
+            if(isHandle) {
+                this.handleResult(resolve, res);
+            } else {
+                let data = recordKey ? res[recordKey] : res
+                this.cacheList = this.cacheList.concat(data)
+            }
         }
     }
 

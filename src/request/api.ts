@@ -25,7 +25,7 @@ let apiList: ApiList = {
         // }
     },
     'getList': {
-        url: 'http://localhost:8080/list/get',
+        url: 'http://www.zhouhongbin.work:8080/list/get',
         method: 'get',
     }
 }

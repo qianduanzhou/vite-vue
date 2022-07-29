@@ -36,9 +36,12 @@ function request({ name, data: dataIn = {} } : {name: string, data?: DataIn}) {
             data,
             headers
         }).then((res: any) => {
-            resolve(res)
+            resolve({
+                err: null,
+                res
+            })
         }).catch(err => {
-            reject(err)
+            resolve({err})
         })
     })
 }
