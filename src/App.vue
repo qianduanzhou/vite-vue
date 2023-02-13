@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import CreateImgLineFlow from "flow-chart-canvas";
-import logoPic from "@/assets/logo.png"
+import logoPic from "@/assets/logo.png";
 let canvas: HTMLCanvasElement = ref();
 let flowCanvas: HTMLCanvasElement = ref();
 onMounted(() => {
@@ -96,10 +96,10 @@ onMounted(() => {
         {
           x: 525,
           y: 600
-        },
+        }
       ],
       arrowDirection: "down"
-    },
+    }
   ];
   let createImgLineFlow = new CreateImgLineFlow({
     lineData,
