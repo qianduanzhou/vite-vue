@@ -1,4 +1,4 @@
-const DEVICEWIDTH = 375;// 设计稿设备宽度
+const DEVICEWIDTH = 1920;// 设计稿设备宽度
 const ROOTVALUE = 100 // 对应postcss.config里面的rootValue
 // 设置 rem 函数
 function setRem () {
